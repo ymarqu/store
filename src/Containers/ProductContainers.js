@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "../Components/product";
+import '../product.css'
 
 
 
@@ -23,12 +24,12 @@ class ProductContainer extends Component{
 
     render(){
         let productComponents = this.state.productList.map(product => {
-            return <Product url={product.image} name={product.title} desc={product.description} />
+            return <Product url={product.image} name={product.title} desc={product.description} price={product.price} />
         })
 
 
         return(
-            <div>
+            <div className="product-container">
                 {productComponents}
             </div>
         )
