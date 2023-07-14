@@ -6,7 +6,7 @@ class Button extends Component{
         const {buttonText} = this.props;
         return(
             <div>
-                <button class="btn">{buttonText}</button>
+                <button type="button" class="btn btn-dark grow"><i class="fa-solid fa-cart-shopping"></i> {buttonText}</button>
             </div>
         )
     }
