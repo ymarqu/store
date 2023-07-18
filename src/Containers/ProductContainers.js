@@ -7,11 +7,9 @@ import '../product.css'
 class ProductContainer extends Component{
     constructor(){
         super()
-
         this.state = {
         productList: [],
-    }
-
+        }
     }
 
 
