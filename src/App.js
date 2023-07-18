@@ -12,7 +12,7 @@ class App extends Component{
   constructor(){
     super()
     this.state ={
-        clicked: false
+        clicked: true
     }
 }
 
@@ -35,7 +35,7 @@ render(){
     <Navbar />
     <Cover coverText="All your favorites, All in one place." imgUrl="/Users/yeseniamarquina/Desktop/311/JSCourse/store/src/girlShopping.png"/>
     <ProductContainer onClick={this.handleAddToCart}/>
-    <Cart onClick={this.handleClick} click={this.state.clicked}/>
+    {/* <Cart onClick={this.handleClick} click={this.state.clicked}/> */}
     </div>
    )
   }

@@ -5,7 +5,7 @@ class Navbar extends Component{
     render(){
         return(
         <div>
-            <nav className="navbar navbar-expand-lg z-2 ">
+            <nav className="navbar navbar-expand-lg z-2 fixed top-0 w-100 ">
             <div className="container-fluid">
             <a className="navbar-brand" href="#">Navbar</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
