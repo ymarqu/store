@@ -5,6 +5,7 @@ import '../product.css'
 class Product extends Component{
 
     render(){
+        let { onClick } = this.props;
         let { url, desc, price, name } = this.props;
         return(
             <div className="product dib pa3 br3 ma2 bw2 shawdow-5">
@@ -13,7 +14,7 @@ class Product extends Component{
                 <p className="product-desc">{desc.slice(0, 70) + "..."}<a href="">See more</a></p>
                 <div className="card-line"></div>
                 <p className="price">${price}</p>
-                <Button buttonText="Add to cart"/>
+                <Button onClick={onClick} onbuttonText="Add to cart"/>
             </div>
         )
     }

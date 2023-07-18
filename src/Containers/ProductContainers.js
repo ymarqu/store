@@ -21,8 +21,9 @@ class ProductContainer extends Component{
 
 
     render(){
-        let productComponents = this.state.productList.map(product => {
-            return <Product url={product.image} name={product.title} desc={product.description} price={product.price} />
+        let {onClick} = this.props;
+         let productComponents = this.state.productList.map(product => {
+            return <Product onClick={onClick} key={product.id} url={product.image} name={product.title} desc={product.description} price={product.price} />
         })
 
 
