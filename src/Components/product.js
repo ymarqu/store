@@ -1,11 +1,9 @@
 import React, {Component} from "react";
-import Button from "./button.js";
 import '../product.css'
 
 class Product extends Component{
 
     render(){
-        let { onClick } = this.props;
         let { url, desc, price, name } = this.props;
         return(
             <div className="product dib pa3 br3 ma2 bw2 shawdow-5">
@@ -14,7 +12,6 @@ class Product extends Component{
                 <p className="product-desc">{desc.slice(0, 50).toLowerCase()+ "..."}</p>
                 <div className="card-line"></div>
                 <p className="price">${price}</p>
-                {/* <Button onClick={onClick} buttonText="Add to cart"/> */}
             </div>
         )
     }
