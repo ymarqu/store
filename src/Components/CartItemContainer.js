@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import CartItem from "../Components/CartItem";
+import '../cart.css'
+
 
 
 class CartItemContainer extends Component{
@@ -10,7 +12,7 @@ class CartItemContainer extends Component{
         let cartDisplay = cartItems.map((cartItem, index) => {
             let {item, price, url} = cartItem
             return(
-                <div>
+                <div key={index}>
                     <CartItem productName={item} url={url} price={price}/>
                 </div>
             )

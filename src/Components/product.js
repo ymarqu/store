@@ -11,7 +11,7 @@ class Product extends Component{
                 <p className="product-title">{name.slice(0, 30)}</p>
                 <p className="product-desc">{desc.slice(0, 50).toLowerCase()+ "..."}</p>
                 <div className="card-line"></div>
-                <p className="price">${price}</p>
+                <p className="price">${parseInt(price).toFixed(2)}</p>
             </div>
         )
     }

@@ -11,11 +11,16 @@ class ProductContainer extends Component{
         super()
         this.state = {
         productList: [],
-        addItem: {},
+        cartTotal: 0,
+        newPrice:0,
         cartItems: [],
         clicked: false
         }
     }
+
+    // componentDidMount(){
+
+    // }
 
     handleClick = () => {
         this.setState({clicked: false});
@@ -30,6 +35,16 @@ class ProductContainer extends Component{
         let item = Object.assign({}, e.target.dataset)
         actualList.push(item)
         this.setState({cartItems: actualList})
+        // this.setState({newPrice: price})
+        // let price = parseInt(item.price);
+        // let updatedTotal = price + this.state.cartTotal;
+        // this.setState({cartTotal: updatedTotal})
+        // console.log(this.state.cartTotal);
+        // this.setState((state, props) => ({
+        //     cartTotal: state.cartTotal + 5,
+        // }));
+
+        console.log(this.state.cartTotal);
     }
 
 
@@ -39,6 +54,11 @@ class ProductContainer extends Component{
         let fetchPromise = fetch('https://fakestoreapi.com/products');
         fetchPromise.then(res => res.json())
         .then(data => this.setState({productList: data}));
+
+       this.setState((state, props) => ({
+        cartTotal: state.cartTotal + this.state.newPrice,
+    }));
+    console.log(this.state.cartTotal);
     }
 
 

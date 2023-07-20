@@ -7,10 +7,13 @@ class Cart extends Component{
 
     render(){
         let {onClick, click, currentCart} = this.props
-        let classes = click ? "cart-container expand fl w-20 bg-purple z-1 h-100 fixed top-0 right-0 pt5" : "cart-container dn";
+        let classes = click ? "cart-container expand fl w-20 z-1 h-100 bg-white fixed top-0 right-0 pt5" : "cart-container dn";
         return <div className={classes}>
-            <i onClick={onClick} className="fa-regular fa-rectangle-xmark grow"></i>
-            <CartItemContainer cartItems={currentCart} />
+            <div className="cart-title-container">
+                <p className="cart-title"><i className="fa-solid fa-cart-shopping"></i> Cart</p>
+                <i onClick={onClick} className="fa-regular fa-rectangle-xmark grow"></i>
+            </div>
+                <CartItemContainer cartItems={currentCart} />
             </div>
     }
 }
