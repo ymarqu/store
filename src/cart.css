@@ -16,6 +16,7 @@
     font-weight: 400;
 }
 
+
 /* CART - SINGLE ITEMS END */
 
 /* CART ITEMS CONTAINER */
@@ -47,3 +48,19 @@
     color: #FFB4B4;
     cursor: pointer;
 }
+
+/* CART TOTAL CONTAINER */
+
+.price-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkout-btn{
+    height: 50%;
+    width: 80%;
+}
+
+/* CART TOTAL CONTAINER END */

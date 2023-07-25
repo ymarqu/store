@@ -28,20 +28,25 @@ class ProductContainer extends Component{
         console.log(this.state.clicked)
     }
 
+
+
     handleAddToCart = (e) => {
         this.setState({clicked: true});
         console.log(e.target.dataset)
         const actualList = this.state.cartItems;
         let item = Object.assign({}, e.target.dataset)
         actualList.push(item)
+        let itemPrice = parseInt(item.price);
         this.setState({cartItems: actualList})
         // this.setState({newPrice: price})
         // let price = parseInt(item.price);
         // let updatedTotal = price + this.state.cartTotal;
         // this.setState({cartTotal: updatedTotal})
         // console.log(this.state.cartTotal);
-        // this.setState((state, props) => ({
-        //     cartTotal: state.cartTotal + 5,
+        let prevTotal = this.state.cartTotal + itemPrice;
+        this.setState({cartTotal: prevTotal});
+        // this.setState(prevTotal => ({
+        //     cartTotal: this.state.cartTotal + 5,
         // }));
 
         console.log(this.state.cartTotal);
@@ -54,11 +59,6 @@ class ProductContainer extends Component{
         let fetchPromise = fetch('https://fakestoreapi.com/products');
         fetchPromise.then(res => res.json())
         .then(data => this.setState({productList: data}));
-
-       this.setState((state, props) => ({
-        cartTotal: state.cartTotal + this.state.newPrice,
-    }));
-    console.log(this.state.cartTotal);
     }
 
 
@@ -75,7 +75,7 @@ class ProductContainer extends Component{
         return(
             <div className="product-container">
                 {productComponents}
-                <Cart currentCart={this.state.cartItems} onClick={this.handleClick} click={this.state.clicked}/>
+                <Cart currentCart={this.state.cartItems} onClick={this.handleClick} click={this.state.clicked} cartTotal={this.state.cartTotal}/>
             </div>
         )
     }
