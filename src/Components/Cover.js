@@ -10,7 +10,7 @@ class Cover extends Component{
             <div className='cover'>
                 <div className='img-container'>
                 <p>{coverText}</p>
-                <img src={imgUrl}></img>
+                <img src={imgUrl} alt="miss. gurl shopping puuurr"></img>
                 </div>
             </div>
         )
