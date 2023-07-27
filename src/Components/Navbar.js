@@ -2,10 +2,27 @@ import React, {Component} from "react";
 
 class Navbar extends Component{
 
+    constructor(){
+        super()
+            this.state = {
+                scrollTop:0
+        }
+    }
+
+    handleScroll = (e) => {
+        this.setState({scrollTop: e.currentTarget.scrollTop});
+        console.log(this.state.scrollTop)
+    }
+
+
     render(){
+
+
+
+
         return(
         <div>
-            <nav className="navbar navbar-expand-lg z-2 fixed top-0 w-100 ">
+            <nav className="navbar navbar-expand-lg w-100" onScroll={this.handleScroll}>
             <div className="container-fluid">
             <a className="navbar-brand" href="#">Navbar</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

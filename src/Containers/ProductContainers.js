@@ -18,42 +18,21 @@ class ProductContainer extends Component{
         }
     }
 
-    // componentDidMount(){
-
-    // }
-
     handleClick = () => {
         this.setState({clicked: false});
-        console.log("click");
-        console.log(this.state.clicked)
     }
-
 
 
     handleAddToCart = (e) => {
         this.setState({clicked: true});
-        console.log(e.target.dataset)
         const actualList = this.state.cartItems;
         let item = Object.assign({}, e.target.dataset)
         actualList.push(item)
         let itemPrice = parseInt(item.price);
         this.setState({cartItems: actualList})
-        // this.setState({newPrice: price})
-        // let price = parseInt(item.price);
-        // let updatedTotal = price + this.state.cartTotal;
-        // this.setState({cartTotal: updatedTotal})
-        // console.log(this.state.cartTotal);
         let prevTotal = this.state.cartTotal + itemPrice;
         this.setState({cartTotal: prevTotal});
-        // this.setState(prevTotal => ({
-        //     cartTotal: this.state.cartTotal + 5,
-        // }));
-
-        console.log(this.state.cartTotal);
     }
-
-
-
 
     componentDidMount(){
         let fetchPromise = fetch('https://fakestoreapi.com/products');
