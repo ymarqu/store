@@ -33,6 +33,7 @@
 .cart-container{
     display: flex;
     background-color: none;
+    margin-top: 10vh;
 }
 .exit-box{
     color: #FFB4B4;

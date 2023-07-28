@@ -15,6 +15,7 @@ class App extends Component{
   }
 
   handleScroll = (e) => {
+    console.log(e)
     this.setState({scrollTop: e.currentTarget.scrollTop});
     console.log(this.state.scrollTop)
 }

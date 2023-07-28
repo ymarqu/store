@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import '../App.css'
 
 class Navbar extends Component{
 
@@ -22,7 +23,7 @@ class Navbar extends Component{
 
         return(
         <div>
-            <nav className="navbar navbar-expand-lg w-100" onScroll={this.handleScroll}>
+            <nav className="navbar navbar-expand-lg fixed t-0 w-100 z-2" onScroll={this.handleScroll}>
             <div className="container-fluid">
             <a className="navbar-brand" href="#">Navbar</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

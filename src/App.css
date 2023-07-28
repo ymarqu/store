@@ -13,6 +13,7 @@ nav{
   color: #fefefe;
   font-family: 'Francois', sans-serif;
   padding: 0 2rem;
+  height: 10vh;
 }
 .navbar-nav{
   position: absolute;

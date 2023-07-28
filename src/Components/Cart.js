@@ -8,7 +8,7 @@ class Cart extends Component{
 
     render(){
         let {onClick, click, currentCart, cartTotal} = this.props
-        let classes = click ? "cart-container expand fl w-25 z-1 h-100 fixed top-0 right-0 pt5" : "cart-container dn";
+        let classes = click ? "cart-container expand fl w-25 z-1 h-100 fixed top-0 right-0" : "cart-container dn";
         let exClasses = click ? "exit-box bg-white flex justify-center items-center" : "exit-box dn";
         let secondContainerClasses = click ? "second-container w-100 bg-white" : "second-container dn";
         return <div className={classes}>

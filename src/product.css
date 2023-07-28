@@ -45,7 +45,11 @@
     text-align: left;
 
 }
+.cover{
+    padding-top: 10vh;
+}
 .img-container{
+
     background-color: #D9C2F6;
     height: 40vh;
     width: 80%;
