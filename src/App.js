@@ -7,24 +7,9 @@ import Cover from './Components/Cover'
 
 class App extends Component{
 
-  constructor(){
-    super()
-    this.state = {
-      scrollTop: 0
-    }
-  }
-
-  handleScroll = (e) => {
-    console.log(e)
-    this.setState({scrollTop: e.currentTarget.scrollTop});
-    console.log(this.state.scrollTop)
-}
-
 render(){
-
-
   return (
-    <div className="App h-100" onScroll={this.handleScroll}>
+    <div className="App h-100">
     <Navbar />
     <Cover coverText="All your favorites, All in one place." imgUrl="/Users/yeseniamarquina/Desktop/311/JSCourse/store/src/girlShopping.png"/>
     <ProductContainer />

@@ -25,9 +25,20 @@ class ProductContainer extends Component{
 
     handleAddToCart = (e) => {
         this.setState({clicked: true});
+        console.log(this.state.cartItems.includes(e.target.dataset));
+        console.log(e.target.dataset)
         const actualList = this.state.cartItems;
         let item = Object.assign({}, e.target.dataset)
+        console.log(item.id)
+
+        if(this.state.cartItems.find(x => x.id === item.id) === undefined){
+            console.log('puuuurrr')
+        }else{
+            console.log('goo off')
+        }
+        console.log(this.state.cartItems.includes(item.id));
         actualList.push(item)
+        console.log(item)
         let itemPrice = parseInt(item.price);
         this.setState({cartItems: actualList})
         let prevTotal = this.state.cartTotal + itemPrice;
@@ -45,8 +56,8 @@ class ProductContainer extends Component{
          let productComponents = this.state.productList.map(product => {
             return (
             <div key={product.id}>
-            <Product  url={product.image} name={product.title} desc={product.description} price={product.price} />
-            <Button onClick={this.handleAddToCart} buttonText="Add to cart" item={product.title} price={product.price} url={product.image}/>
+            <Product  url={product.image} name={product.title} desc={product.description} price={product.price} id={product.id}/>
+            <Button onClick={this.handleAddToCart} buttonText="Add to cart" item={product.title} price={product.price} url={product.image} id={product.id}/>
             </div>)
         })
 
