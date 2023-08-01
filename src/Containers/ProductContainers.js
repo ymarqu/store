@@ -18,50 +18,71 @@ class ProductContainer extends Component{
         }
     }
 
-    handleClick = () => {
-        this.setState({clicked: false});
+    _removeFromCart = (productID) => {
+        let prevCart = this.state.cartItems;
+        prevCart.splice(productID, 1);
+        this.setState({cartItems: prevCart})
     }
 
     _updateQuanity = (operation, productId) => {
         let index = this.state.cartItems.findIndex(x => x.id === productId);
-        let prevCart = this.state.cartItems;
-        let prevQuantity = parseInt(prevCart[index].quantity);
-        let updatedQuantity = 0;
-        if(operation === "+"){
-            updatedQuantity = prevQuantity + 1;
-        }else{
-            if(prevQuantity === 0){
-                return;
-            }
-            updatedQuantity = prevQuantity - 1;
+        let prevQuantity = parseInt(this.state.cartItems[index].quantity);
+        if(operation === "-" && prevQuantity === 0){
+            return;
         }
+
+        let prevCart = this.state.cartItems;
+        let updatedQuantity = operation === "+" ?  prevQuantity + 1 : prevQuantity - 1;
         prevCart[index].quantity = updatedQuantity;
         this.setState({cartItems: prevCart});
+    }
+
+    _updatePrice = (operation, productId) => {
+        let index = this.state.cartItems.findIndex(x => x.id === productId);
+        let item  = this.state.cartItems[index];
+        let price = parseInt(item.price);
+        let quantity = parseInt(item.quantity);
+        if(quantity === 0){return;}
+        let updatedTotal =  operation === "+" ? this.state.cartTotal + price : this.state.cartTotal - price;
+        this.setState({cartTotal: updatedTotal})
+    }
+
+    handleClick = () => {
+        let copyCart = this.state.cartItems;
+        console.log(copyCart);
+        copyCart.forEach((item, index) => {
+            if(item.quantity === 0){
+                this._removeFromCart(index);
+            }
+        })
+
+
+        this.setState({clicked: false});
     }
 
     handleQuanity = (e) => {
         let opertation = e.target.textContent;
         let productId = e.target.dataset.id;
+        this._updatePrice(opertation, productId);
         this._updateQuanity(opertation, productId);
+
     }
 
 
 
     handleAddToCart = (e) => {
         this.setState({clicked: true});
-        console.log(this.state.cartItems.includes(e.target.dataset));
-        console.log(e.target.dataset)
         const actualList = this.state.cartItems;
         let item = Object.assign({}, e.target.dataset)
+
         if(this.state.cartItems.find(x => x.id === item.id)){
             this._updateQuanity("+", e.target.dataset.id);
         }else{
         actualList.push(item)
         let itemPrice = parseInt(item.price);
         this.setState({cartItems: actualList})
-        let prevTotal = this.state.cartTotal + itemPrice;
-        this.setState({cartTotal: prevTotal});
-    }
+        }
+      this._updatePrice("+",e.target.dataset.id);
     }
 
     componentDidMount(){
