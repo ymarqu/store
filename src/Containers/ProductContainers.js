@@ -22,31 +22,27 @@ class ProductContainer extends Component{
         this.setState({clicked: false});
     }
 
-
+    _updateQuanity = (operation, productId) => {
+        let index = this.state.cartItems.findIndex(x => x.id === productId);
+        let prevCart = this.state.cartItems;
+        let prevQuantity = parseInt(prevCart[index].quantity);
+        let updatedQuantity = 0;
+        if(operation === "+"){
+            updatedQuantity = prevQuantity + 1;
+        }else{
+            if(prevQuantity === 0){
+                return;
+            }
+            updatedQuantity = prevQuantity - 1;
+        }
+        prevCart[index].quantity = updatedQuantity;
+        this.setState({cartItems: prevCart});
+    }
 
     handleQuanity = (e) => {
         let opertation = e.target.textContent;
-        console.log(opertation)
-        let itemId = e.target.dataset.id;
-        let copy = this.state.cartItems;
-        console.log(copy)
-        let itemIndex = copy.findIndex(x => x.id === itemId);
-
-        if(opertation == "+"){
-        let newQuanitiy= parseInt(copy[itemIndex].quantity) + 1;
-        console.log(newQuanitiy)
-        copy[itemIndex].quantity = newQuanitiy.toString();
-
-        this.setState({cartItems: copy});
-        }else{
-            if(copy[itemIndex] === 0){
-                return;
-            }
-            let newQuanitiy= parseInt(copy[itemIndex].quantity) - 1;
-            console.log(newQuanitiy)
-            copy[itemIndex].quantity = newQuanitiy.toString();
-            this.setState({cartItems: copy});
-        }
+        let productId = e.target.dataset.id;
+        this._updateQuanity(opertation, productId);
     }
 
 
@@ -57,25 +53,10 @@ class ProductContainer extends Component{
         console.log(e.target.dataset)
         const actualList = this.state.cartItems;
         let item = Object.assign({}, e.target.dataset)
-        console.log(item.id)
-        console.log(item.quantity)
-
         if(this.state.cartItems.find(x => x.id === item.id)){
-            let copy = this.state.cartItems;
-            console.log(copy)
-            let itemToIncrease = copy.findIndex(x => x.id === item.id);
-            console.log(itemToIncrease)
-            let newQuanitiy= parseInt(copy[itemToIncrease].quantity) + parseInt(item.quantity);
-            console.log(newQuanitiy)
-            copy[itemToIncrease].quantity = newQuanitiy.toString();
-
-            this.setState({cartItems: copy});
+            this._updateQuanity("+", e.target.dataset.id);
         }else{
-            console.log('goo off')
-
-        console.log(this.state.cartItems.includes(item.id));
         actualList.push(item)
-        console.log(item)
         let itemPrice = parseInt(item.price);
         this.setState({cartItems: actualList})
         let prevTotal = this.state.cartTotal + itemPrice;
