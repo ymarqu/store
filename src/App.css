@@ -8,12 +8,20 @@
 /* NAVBAR */
 
 nav{
+  background-color: #262A56;
+  color: #ffff;
   box-sizing: border-box;
-  background-color: #FFB4B4;
-  color: #fefefe;
+  /* background-color:#EEEDED; */
   font-family: 'Francois', sans-serif;
   padding: 0 2rem;
   height: 10vh;
+}
+.navbar-brand{
+  /* font-family: 'Fraunces', serif; */
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 .navbar-nav{
   position: absolute;
@@ -23,3 +31,16 @@ nav{
 .navbar{
   padding-left: 10%;
 }
+
+
+/* NAVBAR END */
+
+/* BUTTON */
+
+  .btn{
+    width: 80%;
+    background-color: #B8621B;
+    border: navajowhite;
+  }
+
+/* BUTTON END */

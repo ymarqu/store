@@ -79,7 +79,6 @@ class ProductContainer extends Component{
             this._updateQuanity("+", e.target.dataset.id);
         }else{
         actualList.push(item)
-        let itemPrice = parseInt(item.price);
         this.setState({cartItems: actualList})
         }
       this._updatePrice("+",e.target.dataset.id);
@@ -95,7 +94,7 @@ class ProductContainer extends Component{
     render(){
          let productComponents = this.state.productList.map(product => {
             return (
-            <div key={product.id}>
+            <div className="product-box" key={product.id}>
             <Product  url={product.image} name={product.title} desc={product.description} price={product.price} id={product.id} quantity="1"/>
             <Button onClick={this.handleAddToCart} buttonText="Add to cart" item={product.title} price={product.price} url={product.image} id={product.id} quantity="1"/>
             </div>)

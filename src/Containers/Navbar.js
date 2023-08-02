@@ -6,7 +6,7 @@ class Navbar extends Component{
     constructor(){
         super()
             this.state = {
-                scrollTop:0
+                scrollTop: 0
         }
     }
 
@@ -17,15 +17,11 @@ class Navbar extends Component{
 
 
     render(){
-
-
-
-
         return(
         <div>
-            <nav className="navbar navbar-expand-lg fixed t-0 w-100 z-2" onScroll={this.handleScroll}>
+            <nav className="navbar navbar-expand-lg fixed t-0 w-100 z-2 navbar-dark" onScroll={this.handleScroll}>
             <div className="container-fluid">
-            <a className="navbar-brand" href="#">Navbar</a>
+            <a className="navbar-brand" href="#">AuroraAttire</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
              <span className="navbar-toggler-icon"></span>
             </button>
