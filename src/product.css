@@ -4,7 +4,8 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 20px;
     column-gap: 20px;
-    width: 80%;
+    width: 100%;
+    max-width: 2050px;
     margin: 5rem auto;
     margin-bottom: 0;
     right: 0;
@@ -42,7 +43,6 @@
 }
 .price{
     color: #262A56;
-    /* font-family: 'Fraunces', serif; */
     margin-top: 10px;
     font-size: 1.2rem;
     font-weight: 700;
@@ -54,9 +54,6 @@
     background-color: rgba(255,255,255,0.6);
     font-weight: 800;
     font-size: 4rem;
-    width: 50%;
-    /* text-align: left; */
-
 }
 .cover{
     background-size: cover;
@@ -64,13 +61,31 @@
     border-bottom: solid 1px #D8D9DA;
 }
 .img-container{
-    height: 70vh;
     width: 100%;
+    height: 100%;
+    max-height: 80vh;
+    min-height: 50vh;
     margin: auto auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 .img-container > img{
-    height: 100%;
+    height: 50vh;
+}
+
+
+@media screen and (max-width: 1000px){
+    .product-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 550px){
+    .product-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .img-container > p{
+        font-size: 3rem;
+        width: 80%;
+    }
 }
