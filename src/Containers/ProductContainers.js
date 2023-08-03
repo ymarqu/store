@@ -14,7 +14,7 @@ class ProductContainer extends Component{
         cartTotal: 0,
         newPrice:0,
         cartItems: [],
-        clicked: false
+        clicked: true
         }
     }
 

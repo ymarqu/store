@@ -15,7 +15,7 @@ class CartItemContainer extends Component{
             return(
                 <div key={index}>
                     <CartItem productName={item} url={url} price={price} />
-                    <ItemQuantities quantity={quantity} quantityClick={quantityClick} id={id}/>
+                    <ItemQuantities quantity={quantity} quantityClick={quantityClick} id={id} price={price}/>
                 </div>
             )
         })
